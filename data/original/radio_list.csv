@@ -1,0 +1,9 @@
+Radio Name;Flux Name;Group;Genre;Continent;Location;Stream;Codecs
+1Live;50001;TopRadio;Adult Contemporary;All;Cologne;http://www.wdr.de/wdrlive/media/einslive.m3u;MP3
+TechnoBase.FM;70001;TopRadio;Techno;All;All;http://listen.technobase.fm/tunein-dsl-pls;MP3
+Rock Antenne;70002;TopRadio;Rock;All;Ismaning;http://www.rockantenne.de/webradio/rockantenne.m3u;MP3
+Rock Antenne Classic Perlen;70003;TopRadio;Rock;All;Ismaning;http://www.rockantenne.de/webradio/channels/classic-perlen.m3u;MP3
+Antenne Bayern;70004;TopRadio;Adult Contemporary;All;Ismaning;http://www.antenne.de/webradio/antenne.m3u;MP3
+Antenne Bayern 80er Kulthits;70005;TopRadio;80s;All;Ismaning;http://www.antenne.de/webradio/channels/80er-kulthits.m3u;MP3
+WDR2;70006;TopRadio;Adult Contemporary;All;Cologne;http://www.wdr.de/wdrlive/media/wdr2_essen_duesseldorf.m3u;MP3
+Radio Muelheim;70007;TopRadio;Adult Contemporary;All;Cologne;http://213.200.97.110/radiomuelheim/livestream.mp3;MP3
