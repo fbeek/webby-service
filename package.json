@@ -27,7 +27,8 @@
     "tar-fs": "*",
     "tar-stream": "*",
     "xmlbuilder": "*",
-    "checksum": "*"
+    "checksum": "*",
+    "csv": "*"
   },
   "license": "MIT"
 }

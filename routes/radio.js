@@ -7,6 +7,7 @@ var util = require('util');
 var builder = require('xmlbuilder');
 var dateFormat = require('dateformat');
 var checksum = require('checksum');
+var csv = require('csv');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -58,11 +59,7 @@ router.get('/catalog/list', function(req,res){
                 res.send(xmlString);
             });
         });
-
     }
-
-
-
 });
 
 router.post('/catalogo/verifyTransfer',function(req, res){
@@ -92,6 +89,47 @@ router.get('/file/:name',function(req, res){
         }
         else {
             util.log('Sent: '+fileName);
+        }
+    });
+});
+
+router.get('/catalog/item', function(req,res){
+    var ticket = req.query.ticker;
+    var sourceFile = 'data/original/radio_list.csv';
+    fs.readFile(sourceFile,function(err,data){
+        if(err){
+            util.log(err);
+            res.status(404).end();
+        }else{
+            console.log(ticket);
+            csv.parse(data.toString(),{delimiter:';'}, function(csverr, csvdata){
+                if(csverr){
+                    util.log(csverr);
+                    res.status(404).end();
+                }else{
+                    csvdata.forEach(function(item){
+                        if(item[1] == ticket){
+                            var radioObj = {
+                              radio: {
+                                  idRadio: "RADIO_CUORE-MP3-32",
+                                  name : item[0],
+                                  url: item[6],
+                                  codec: '',
+                                  bitrate: ''
+                              }
+                            };
+
+                            var xml = builder.create(radioObj);
+                            var xmlString = xml.end();
+
+                            res.set('Content-Type', 'text/xml');
+                            res.send(xmlString);
+                        }
+                    });
+                    util.log('Unknown Ticket');
+                    res.status(404).end();
+                }
+            });
         }
     });
 });
