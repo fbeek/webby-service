@@ -121,13 +121,11 @@ router.get('/catalog/item', function(req,res){
 
                             var xml = builder.create(radioObj);
                             var xmlString = xml.end();
-
+                            util.log('Found Radio Station');
                             res.set('Content-Type', 'text/xml');
                             res.send(xmlString);
                         }
                     });
-                    util.log('Unknown Ticket');
-                    res.status(404).end();
                 }
             });
         }

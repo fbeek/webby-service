@@ -4,9 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var serveStatic = require('serve-static')
+var serveStatic = require('serve-static');
 var routes = require('./routes/index');
 var radio = require('./routes/radio');
+var news = require('./routes/news');
 
 var app = express();
 
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(serveStatic('data/_generated/', {}));
 app.use('/', routes);
 app.use('/radio', radio);
+app.use('/widget/news', news);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
