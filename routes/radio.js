@@ -40,7 +40,7 @@ router.get('/catalog/list', function(req,res){
                         date_validity: 0,
                         estimated_update_time: dateFormat(date, "HH:MM:ss"),
                         catalog_radio:{
-                            url_catalog_radio: 'http://192.168.1.57/radio/file/radio_list.tar.gz',
+                            url_catalog_radio: process.env.SERVICEHOSTNAME+'radio/file/radio_list.tar.gz',
                             md5_catalog_radio: sum
                         },
                         list_category:{
